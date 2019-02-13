@@ -27,6 +27,8 @@ public class BookOfIllusions extends MouseAdapter {
 	}
 
 	// 1. Make a JFrame variable and initialize it using "new JFrame()"
+	
+	new JFrame()
 
 	private void createBook() {
 		// 2. make the frame visible

@@ -27,6 +27,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
+
 
 
 /* Check out the Jeopardy Handout to see what the end result should look like: http://bit.ly/1bvnvd4 */
@@ -34,12 +36,13 @@ import javax.swing.JPanel;
 public class Jeopardy implements ActionListener {
 	private JButton firstButton;
 	private JButton secondButton;
-	private JButton thirdButton, fourthButton;
+	private JButton thirdButton, fourthButton, fifthButton;
 	private JPanel quizPanel;
 	private int score = 0;
 	private JLabel scoreBox = new JLabel("0");
 	private int buttonCount = 0;
 	private AudioClip sound;
+	int questionsAnswered = 0;
 
 	public static void main(String[] args) {
 		new Jeopardy().start();
@@ -62,7 +65,7 @@ public class Jeopardy implements ActionListener {
 		// 3. Create a JPanel variable to hold the header using the createHeader method
 		// 4. Add the header component to the quizPanel
 		
-		quizPanel.add(createHeader("Animals"));
+		quizPanel.add(createHeader("School"));
 
 		// 5. Add the quizPanel to the frame
 		
@@ -88,6 +91,17 @@ public class Jeopardy implements ActionListener {
 		// 10. Add the secondButton to the quizPanel
 		
 		quizPanel.add(secondButton);
+		
+		
+		thirdButton = createButton("$600");
+		quizPanel.add(thirdButton);
+		
+		fourthButton = createButton("$800");
+		quizPanel.add(fourthButton);
+		
+		
+		fifthButton = createButton("$1000");
+		quizPanel.add(fifthButton);
 
 		// 11. Add action listeners to the buttons (2 lines of code)
 		
@@ -134,21 +148,55 @@ public class Jeopardy implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		// Remove this temporary message after testing:
-		JOptionPane.showMessageDialog(null, "pressed " + ((JButton) e.getSource()).getText() + " button");
 
 		JButton buttonPressed = (JButton) e.getSource();
 		// If the buttonPressed was the firstButton
+		if (buttonPressed.equals(firstButton)) {
+	
 
 			// Call the askQuestion() method
+		askQuestion("Is 85% consider a B?", "Yes", 200 );
  
 		// Complete the code in the askQuestion() method. When you play the game, the score should change.
-
+		
+		quizPanel.remove(firstButton);
+		
+		}
 		// If the buttonPressed was the secondButton
+		if (buttonPressed.equals(secondButton)) {
+	
 
 			// Call the askQuestion() method with a harder question
-
+		askQuestion("What is a passing grade?", "D", 400 );
 		// Clear the text on the button that was pressed (set the button text to nothing)
+		
+		quizPanel.remove(secondButton);
+		
+		}
+		
+		if (buttonPressed.equals(thirdButton)) {
+			
+		askQuestion("Fill in the blank  :  Justice for ____", "All", 600 );
+		
+		quizPanel.remove(thirdButton);
+		
+		}
+		
+		if (buttonPressed.equals(fourthButton)) {
 
+		askQuestion("Who's the one in charge in a school?", "Principal", 800 );
+		
+		quizPanel.remove(fourthButton);
+		
+		}
+		
+		if (buttonPressed.equals(fifthButton)) {
+
+			askQuestion("What does MLA stand for?", "Modern Language Association", 1000 );
+			
+			quizPanel.remove(fifthButton);
+			
+			}
 	}
 
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
@@ -194,9 +242,19 @@ public class Jeopardy implements ActionListener {
 		// Call the updateScore() method
 		
 		updateScore();
+		
+		questionsAnswered++;
 
+	
+	
+	if(questionsAnswered==0) {
+		
+		
+		JOptionPane.showMessageDialog(null, null, "Your final score is " , score);
+		
 	}
-
+	}
+	
 	public void playJeopardyTheme() {
 		try {
 			sound = JApplet.newAudioClip(getClass().getResource("jeopardy.wav"));

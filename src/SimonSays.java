@@ -79,7 +79,7 @@ public class SimonSays extends KeyAdapter {
 			
 			++score;
 			
-			speak("You are incorrect!");
+			speak("You are correct!");
 			
 			
 			

@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -8,70 +10,74 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class TypingTutor implements KeyListener{
-
+public class TypingTutor implements KeyListener {
 	
-	
-	public static void main(String[] args) {
-		
-	TypingTutor tp = new TypingTutor();
+	char currentLetter;
 	
 	JFrame jframe = new JFrame();
-	jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	jframe.setVisible(true);
-	JPanel jpanel = new JPanel();	
-	jframe.setSize(300, 150);
-	jframe.setTitle("Type or Die");
+	JPanel jpanel = new JPanel();
 	JLabel jlabel = new JLabel();
 
-	char currentLetter;
+	TypingTutor() {
 
-	currentLetter = tp.generateRandomLetter();
+		
+		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jframe.setVisible(true);
+		
+		jframe.setSize(300, 150);
+		jframe.setTitle("Type or Die");
+		
 
-	jlabel.add(currentLetter);
-	jlabel.setFont(jlabel.getFont().deriveFont(28.0f));
-	jlabel.setHorizontalAlignment(JLabel.CENTER);
-	jpanel.add(jlabel);
-	jframe.add(jpanel);
-	
-	
-	
+		currentLetter = generateRandomLetter();
+
+		jlabel.setFont(jlabel.getFont().deriveFont(28.0f));
+		jlabel.setHorizontalAlignment(JLabel.CENTER);
+		jpanel.add(jlabel);
+		jframe.add(jpanel);
+		jframe.addKeyListener(this);
+		jlabel.setText("" + currentLetter);
+
 	}
-	
-	
-	
+
+	public static void main(String[] args) {
+
+		TypingTutor tp = new TypingTutor();
+
+	}
+
 	char generateRandomLetter() {
-	      Random r = new Random();
-	      return (char) (r.nextInt(26) + 'a');
+		Random r = new Random();
+		return (char) (r.nextInt(26) + 'a');
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
-	
-		
+
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 
-		char keyPressed = (char) e.getSource();
+		char keyPressed = (char) e.getKeyChar();
+
+		System.out.println("You typed : " + keyPressed);
 		
-		if ( keyPressed == keyPressed) {
+		if (keyPressed == currentLetter) {
 			
-			System.out.println(keyPressed);
+			System.out.println("CORRECT!!!");
+			
+		jframe.setBackground(Color.GREEN);
 			
 		}
+
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
-	
-	
+
 }

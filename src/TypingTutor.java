@@ -66,18 +66,27 @@ public class TypingTutor implements KeyListener {
 		
 		if (keyPressed == currentLetter) {
 			
-			System.out.println("CORRECT!!!");
+		System.out.println("CORRECT!!!");
 			
-		jframe.setBackground(Color.GREEN);
-			
+		jpanel.setBackground(Color.GREEN);	
+		
 		}
-
+		
+		else {
+			
+		jpanel.setBackground(Color.red);
+		
+		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 
+		TypingTutor tp = new TypingTutor();
+		
+		jlabel.updateUI();
+		
 	}
 
 }

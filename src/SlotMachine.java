@@ -21,6 +21,9 @@ public class SlotMachine implements ActionListener{
 	JLabel cherry = new JLabel();
 	JLabel lime = new JLabel();
 	JLabel orange = new JLabel();
+	int cherrypics = 0;
+	int limepics = 0;
+	int orangepics = 0;
 	
 	SlotMachine() throws MalformedURLException{
 		
@@ -35,6 +38,7 @@ public class SlotMachine implements ActionListener{
 		cherry = createLabelImage("cher.jpg");
 		lime = createLabelImage("lim.jpg");
 		orange = createLabelImage("oran.jpg");
+		
 		
 		jpanel.add(cherry);
 		jpanel.add(lime);
@@ -93,10 +97,10 @@ public class SlotMachine implements ActionListener{
 				int ran = random.nextInt(3);
 				
 				if (ran == 0) {
-					
-					
-					
+	
 					jpanel.add(createLabelImage("cher.jpg"));
+		
+					cherrypics++;
 					
 				}
 				
@@ -106,19 +110,48 @@ public class SlotMachine implements ActionListener{
 					
 					jpanel.add(createLabelImage("lim.jpg"));
 					
+					limepics++;
+					
 				}
 				
 				else if (ran == 2) {
 					
 					jpanel.add(createLabelImage("oran.jpg"));
 					
+					orangepics++;
+					
 				}
 			}
 			
+			if (cherrypics == 3) {
+				
+				System.out.println("You win!!!");
+				
+				
+				
+			}
 			
+			else if (limepics == 3) {
+				
+				System.out.println("You win!!!");
+				
+				
+				
+			}
 			
+			else if (orangepics == 3) {
+				
+				System.out.println("You win!!!");
+				
+				
+				
+			}
 		}
 	
+		cherrypics = 0;
+		limepics = 0;
+		orangepics = 0;
+		
 		
 		jframe.pack();
 		

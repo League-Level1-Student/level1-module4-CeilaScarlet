@@ -5,15 +5,16 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Riddle implements ActionListener {
 	
 	JFrame jframe = new JFrame();
-	JLabel jlabel = new JLabel();
 	JButton obutton = new JButton();
 	JButton tbutton = new JButton();
-	JTextField aple = new JTextField();
+	JTextField aple = new JTextField(20);
+	JPanel jpanel = new JPanel();
 	String Answer = "g";
 	
 	//Write a program that displays a JFrame to the user. 
@@ -27,24 +28,18 @@ public class Riddle implements ActionListener {
 	Riddle(){
 	jframe.setVisible(true);
 	jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	jframe.setSize(500, 500);
+	JOptionPane.showMessageDialog(null, "What always ends everything?");
 	
 	obutton.addActionListener(this);
 	tbutton.addActionListener(this);
 
 	obutton.setText("Hint");
 	tbutton.setText("Submit");
-	jlabel.add(aple);
-	jlabel.add(obutton);
-	jlabel.add(tbutton);
-	
-	jframe.add(jlabel);
-	
-	
-	
+	jpanel.add(aple);
+	jpanel.add(obutton);
+	jpanel.add(tbutton);	
+	jframe.add(jpanel);
 	jframe.pack();	
-		
-	
 	
 	}
 	

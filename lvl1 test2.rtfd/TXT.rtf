@@ -6,7 +6,7 @@
 }
 {\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat2\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
 {\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
-\margl1440\margr1440\vieww28560\viewh23400\viewkind0
+\margl1440\margr1440\vieww16040\viewh23400\viewkind0
 \deftab720
 \pard\pardeftab720\sl360\sa240\partightenfactor0
 
@@ -18,10 +18,10 @@ public Pizza(boolean thinCrust, int pizzaSizeInches) \{ // constructor code\uc0\
 \ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	2.	}\expnd0\expndtw0\kerning0
 Write a constructor for a Turtle object that has a name and age. \
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl360\sa320\partightenfactor0
-\ls1\ilvl0\cf3 Turtle ()\{\
+\ls1\ilvl0\cf3 Turtle (String n, int a)\{\
 \pard\pardeftab720\partightenfactor0
-\ls1\ilvl0\cf3 this.name = \'93Regi\'94;\
-this.age = 11;\
+\ls1\ilvl0\cf3 this.name = n;\
+this.age = a;\
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl360\sa320\partightenfactor0
 \ls1\ilvl0\cf3 \}\cf2 \
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl360\sa320\partightenfactor0
@@ -35,7 +35,7 @@ Create and initialize a variable for an instance of java.util.Random \uc0\u8232 
 \cf2 \
 \pard\pardeftab720\sl360\sa240\partightenfactor0
 \cf2   6. Create and initialize a variable for a JFrame \
-\cf3 Frame frame = new JFrame;\cf2 \
+\cf3 Frame frame = new JFrame();\cf2 \
 \pard\pardeftab720\sl280\partightenfactor0
 \cf2   \
 \pard\pardeftab720\sl360\sa240\partightenfactor0
@@ -53,6 +53,7 @@ List all the JComponents used to create this application \
 \pard\pardeftab720\sl280\partightenfactor0
 \cf2 \
 \
+\pard\pardeftab720\sl280\partightenfactor0
 \cf3 JFrame,JLabel,JPanel,JTextField,JButton\cf2 \
 \
 \
@@ -83,13 +84,15 @@ What code would you need in between the mustaches to get the above method to com
 \pard\pardeftab720\sl280\partightenfactor0
 \cf3 int half(int number)\{\
 \
-num == number /2;\
+return number /2;\
 \
 \}\
+\pard\pardeftab720\sl280\partightenfactor0
 \cf2 \
 \pard\pardeftab720\sl360\sa240\partightenfactor0
 \cf2 16. public class RedGreenBlue \{ \
-public static void main(String[] args) \{\uc0\u8232 String favoriteColor = "Red";\u8232 \}\u8232 public void setFavoriteColor(String newFavoriteColor) \{ favoriteColor = newFavoriteColor; \
+String favoriteColor = "Red";\
+public static void main(String[] args) \{\uc0\u8232 \u8232 \}\u8232 public void setFavoriteColor(String newFavoriteColor) \{ favoriteColor = newFavoriteColor; \
 \}\uc0\u8232 \}\u8232 What is the problem with the above code and how would you fix it? \
 \cf3 Take void out\cf2 \
 17. public class Cat \{ String name;\uc0\u8232 int lives; \
@@ -108,12 +111,10 @@ tac.meow();\
 public class Dishwasher \{ \
 boolean cleanDishes(int washTimeInMinutes) \{\uc0\u8232 /* method code exists. You do not have to write it\u8232 Returns true if the dishes were cleaned successfully, false if not cleaned. */\u8232 \} \
 void setNumDishesToWash(int numberOfDishes) \{ //method code exists. You do not have to write it\uc0\u8232 \}\u8232 \cf3 \} \
-cleanDishes(10);\
-if(cleanDishes == false)\{\
-JOptionPane.showmessagedialog(\'93not clean do better\'94);\
-\}\
-else\
-setNumDishesToWash(5);\cf2 \
+Dishwasher dw = new Dishwasher();\
+dw.setNumDishesTowash(5);\
+\
+\cf2 \
 \
 \
 \

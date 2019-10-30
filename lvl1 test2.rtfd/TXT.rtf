@@ -74,7 +74,7 @@ What is the return type of the above method? \
 \cf3 int\cf2 \
 13. int setScore(String teamName, int newScore)\{ //method code\uc0\u8232 \} \
 What parameters does the above method take? \
-\cf3 String & int\cf2 \
+\cf3 String teamName & int newScore\cf2 \
 14. int setScore(String teamName, int newScore)\{ //method code\uc0\u8232 \} \
 What code would you need in between the mustaches to get the above method to compile? \
 \pard\pardeftab720\sl300\sa240\partightenfactor0
@@ -94,8 +94,8 @@ return number /2;\
 String favoriteColor = "Red";\
 public static void main(String[] args) \{\uc0\u8232 \u8232 \}\u8232 public void setFavoriteColor(String newFavoriteColor) \{ favoriteColor = newFavoriteColor; \
 \}\uc0\u8232 \}\u8232 What is the problem with the above code and how would you fix it? \
-\cf3 Take void out\cf2 \
-17. public class Cat \{ String name;\uc0\u8232 int lives; \
+\cf3 Can\'92t make a static reference to a non-static field \
+\cf2 17. public class Cat \{ String name;\uc0\u8232 int lives; \
 Cat(String name) \{ this.name = name; this.lives = 9;\uc0\u8232 \} \
 public void meow() \{ System.out.println("Meow"); \}\uc0\u8232 \} \
 Write code to make a cat meow. \
